@@ -23,7 +23,7 @@ RUN apt-get update \
 ARG ARCH=amd64
 ARG SNAPCAST_VERSION=0.19.0
 
-RUN curl -sL -o /tmp/snapserver.deb https://github.com/badaix/snapcast/releases/download/v${SNAPCAST_VERSION}/snapserver_${SNAPCAST_VERSION}-1_${ARCH}.deb \
+RUN curl -sL -o /tmp/snapserver.deb https://github.com/badaix/snapcast/releases/download/v0.19.0/snapserver_0.19.0-1_amd64.deb \
  && dpkg -i /tmp/snapserver.deb \
  && rm /tmp/snapserver.deb
 
