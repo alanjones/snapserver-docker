@@ -16,8 +16,7 @@ RUN cd /tmp \
 
 FROM ubuntu:bionic
 
-RUN apt-get update \
- &https://github.com/ovidner/docker-ubuntu-shairport-sync/blob/master/Dockerfile& apt-get -y install curl \
+RUN apt-get update https://github.com/ovidner/docker-ubuntu-shairport-sync/blob/master/Dockerfile & apt-get -y install curl \
     autoconf \
     automake \
     avahi-daemon \
@@ -55,7 +54,7 @@ RUN cd /tmp \
  && autoreconf -i -f
  && ./configure --sysconfdir=/etc --with-stdout --with-alsa --with-pa --with-pipe --with-avahi --with-ssl=openssl --with-metadata --with-soxr --with-systemd \
  && make \
- && make install \\
+ && make install \
  && cd / \
  && rm -rf /tmp/shairport-sync
 
