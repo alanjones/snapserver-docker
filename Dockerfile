@@ -40,15 +40,13 @@ RUN apt-get update \
     libvorbisenc2 \
     libvorbisfile3 \
     libopus0 \
-    libsoxr-dev \
-    libpulse-dev \
  && apt-get clean && rm -fR /var/lib/apt/lists
 
 RUN cd /tmp \
  && git clone https://github.com/mikebrady/shairport-sync.git \
  && cd shairport-sync \
  && autoreconf -i -f \
- && ./configure --sysconfdir=/etc --with-stdout --with-alsa --with-pa --with-pipe --with-avahi --with-ssl=openssl --with-metadata --with-soxr --with-systemd \
+ && ./configure --sysconfdir=/etc ./configure --with-stdout --with-avahi --with-ssl=openssl --with-metadata \
  && make 
 
 FROM ubuntu:bionic
@@ -76,8 +74,6 @@ RUN apt-get update \
     libssl-dev \
     libconfig-dev \
     libtool \
-    libsoxr-dev \
-    libpulse-dev \
  && apt-get clean && rm -fR /var/lib/apt/lists
 
 RUN curl -sL -o /tmp/snapserver.deb https://github.com/badaix/snapcast/releases/download/v0.19.0/snapserver_0.19.0-1_amd64.deb \
@@ -88,8 +84,6 @@ COPY --from=librespot /tmp/librespot/target/release/librespot /usr/local/bin/
 COPY --from=shairport /tmp/shairport-sync/shairport-sync /usr/local/bin/
 
 COPY supervisord.conf /etc/supervisor/conf.d/supervisord.conf
-
-ENV SPEAKER_NAME="Whole Home Audio"
 
 COPY entrypoint.sh /
 RUN chmod a+x /entrypoint.sh
