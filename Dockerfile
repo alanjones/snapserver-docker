@@ -31,7 +31,7 @@ RUN apt-get update https://github.com/ovidner/docker-ubuntu-shairport-sync/blob/
     libssl-dev \
     libconfig-dev \
     libtool \
-    supervisor && \
+    supervisor \
     libportaudio2 \
     libvorbis0a \
     libavahi-client3 \
