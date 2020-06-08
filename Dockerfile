@@ -51,7 +51,7 @@ RUN curl -sL -o /tmp/snapserver.deb https://github.com/badaix/snapcast/releases/
 RUN cd /tmp \
  && git clone https://github.com/mikebrady/shairport-sync.git \
  && cd shairport-sync \
- && autoreconf -i -f
+ && autoreconf -i -f \
  && ./configure --sysconfdir=/etc --with-stdout --with-alsa --with-pa --with-pipe --with-avahi --with-ssl=openssl --with-metadata --with-soxr --with-systemd \
  && make \
  && make install \
