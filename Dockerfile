@@ -46,7 +46,7 @@ RUN cd /tmp \
  && git clone https://github.com/mikebrady/shairport-sync.git \
  && cd shairport-sync \
  && autoreconf -i -f \
- && ./configure --sysconfdir=/etc ./configure --with-stdout --with-avahi --with-ssl=openssl --with-metadata \
+ && ./configure --sysconfdir=/etc ./configure --with-stdout --with-avahi --with-ssl=openssl --with-metadata --with-mqtt-client\
  && make 
 
 FROM ubuntu:bionic
