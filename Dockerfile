@@ -40,6 +40,7 @@ RUN apt-get update \
     libvorbisenc2 \
     libvorbisfile3 \
     libopus0 \
+    libmosquitto-dev \
  && apt-get clean && rm -fR /var/lib/apt/lists
 
 RUN cd /tmp \
