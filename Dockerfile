@@ -75,6 +75,7 @@ RUN apt-get update \
     libssl-dev \
     libconfig-dev \
     libtool \
+    libmosquitto-dev \
  && apt-get clean && rm -fR /var/lib/apt/lists
 
 RUN curl -sL -o /tmp/snapserver.deb https://github.com/badaix/snapcast/releases/download/v0.19.0/snapserver_0.19.0-1_amd64.deb \
