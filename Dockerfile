@@ -74,6 +74,7 @@ RUN apt-get update \
     libpopt-dev \
     libssl-dev \
     libconfig-dev \
+    libsoxr0 \
     libtool \
     libmosquitto-dev \
  && apt-get clean && rm -fR /var/lib/apt/lists
