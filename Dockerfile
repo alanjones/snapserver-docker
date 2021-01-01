@@ -4,10 +4,10 @@ RUN apt-get update \
  && apt-get -y install build-essential portaudio19-dev curl unzip \
  && apt-get clean && rm -fR /var/lib/apt/lists
 
-ARG LIBRESPOT_VERSION=0.1.1
+ARG LIBRESPOT_VERSION=0.1.3
 
 RUN cd /tmp \
- && curl -sLO https://github.com/librespot-org/librespot/archive/v0.1.1.zip \
+ && curl -sLO https://github.com/librespot-org/librespot/archive/v0.1.3.zip \
  && unzip v${LIBRESPOT_VERSION}.zip \
  && mv librespot-${LIBRESPOT_VERSION} librespot \
  && cd librespot \
@@ -53,7 +53,7 @@ RUN cd /tmp \
 FROM ubuntu:bionic
 
 ARG ARCH=amd64
-ARG SNAPCAST_VERSION=0.19.0
+ARG SNAPCAST_VERSION=0.22.0
 
 RUN apt-get update \
  && apt-get -y install curl \
@@ -78,7 +78,7 @@ RUN apt-get update \
     libmosquitto-dev \
  && apt-get clean && rm -fR /var/lib/apt/lists
 
-RUN curl -sL -o /tmp/snapserver.deb https://github.com/badaix/snapcast/releases/download/v0.19.0/snapserver_0.19.0-1_amd64.deb \
+RUN curl -sL -o /tmp/snapserver.deb https://github.com/badaix/snapcast/releases/download/v0.22.0/snapserver_0.22.0-1_amd64.deb \
  && dpkg -i /tmp/snapserver.deb \
  && rm /tmp/snapserver.deb
 
